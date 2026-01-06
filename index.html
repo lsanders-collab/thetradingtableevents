@@ -1,142 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Community Event Schedule</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<section id="events">
+    <h2>Weekly Trading Schedule</h2>
+    <p><strong>Mondays & Wednesdays:</strong> 8:30am - 10:00am (Zoom)</p>
+    <p><strong>Thursday Evenings:</strong> 8:30pm - 10:00pm (Zoom)</p>
     
-    <!-- Tailwind Configuration -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Colors based on the logo (Teal/Dark Gray)
-                        'trade-primary': '#19A091', // Main Teal from logo
-                        'trade-accent': '#374151', // Mid Gray for borders/details
-                        'trade-secondary': '#4A4E50', // Main Dark Gray/Charcoal from logo
-                        'trade-light': '#E6F8F6', // Very Light Teal/Gray for backgrounds
-                        'event-kickoff': '#34D399', // Green (Kickoff)
-                        'event-weekly': '#3B82F6', // Blue (Weekly Support)
-                        'event-monthly': '#FBBF24', // Yellow (Deep Dive)
-                        'event-mixer': '#EF4444', // Red (Celebration)
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        .font-inter { font-family: 'Inter', sans-serif; }
-        .event-card {
-            transition: all 0.3s ease;
-        }
-        .event-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-        }
-    </style>
-</head>
-<body class="bg-gray-50 font-inter text-trade-secondary">
-
-    <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        
-        <!-- Header Section -->
-        <header class="text-center mb-12 p-8 bg-trade-primary rounded-3xl shadow-xl">
-            <h1 class="text-4xl font-extrabold text-white tracking-tight sm:text-5xl">
-                Community Events & Trading Schedule
-            </h1>
-            <p class="mt-3 text-xl font-medium text-trade-light">
-                Connect, Learn, and Celebrate the Journey to Consistency.
-            </p>
-        </header>
-
-        <!-- Main Events Timeline -->
-        <div class="space-y-8">
-            
-            <!-- Event 1: Meet & Greet Kickoff -->
-            <div class="event-card p-6 bg-white rounded-xl border-l-8 border-event-kickoff shadow-lg">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div>
-                        <span class="text-sm font-semibold uppercase text-gray-500">Kickoff Event</span>
-                        <h2 class="text-3xl font-bold text-trade-secondary mt-1">
-                            Meet & Greet Kickoff Session
-                        </h2>
-                        <p class="text-lg text-gray-600 mt-2">
-                            The official **in-person** start to our community events! Meet your fellow members and prepare for disciplined market navigation.
-                        </p>
-                    </div>
-                    <div class="mt-4 md:mt-0 md:text-right">
-                        <p class="text-xl font-extrabold text-event-kickoff">Saturday, October 18th</p>
-                        <p class="text-base font-semibold text-gray-700">Location TBD (In-Person)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Event 2: Weekly Zoom Calls -->
-            <div class="event-card p-6 bg-white rounded-xl border-l-8 border-event-weekly shadow-lg">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div>
-                        <span class="text-sm font-semibold uppercase text-gray-500">Ongoing Support</span>
-                        <h2 class="text-3xl font-bold text-trade-secondary mt-1">
-                            Weekly Strategy & Lessons Learned Zooms
-                        </h2>
-                        <p class="text-lg text-gray-600 mt-2">
-                            Join us weekly to discuss specific strategies, share your success stories, troubleshoot losses, and review trading adherence.
-                        </p>
-                    </div>
-                    <div class="mt-4 md:mt-0 md:text-right">
-                        <p class="text-xl font-extrabold text-event-weekly">Every Wednesday</p>
-                        <p class="text-base font-semibold text-gray-700">7:00 PM - 9:00 PM EST (Virtual)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Event 3: Monthly In-Person Sessions -->
-            <div class="event-card p-6 bg-white rounded-xl border-l-8 border-event-monthly shadow-lg">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div>
-                        <span class="text-sm font-semibold uppercase text-gray-500">Deep Dive Workshop</span>
-                        <h2 class="text-3xl font-bold text-trade-secondary mt-1">
-                            Monthly In-Person Trading Sessions
-                        </h2>
-                        <p class="text-lg text-gray-600 mt-2">
-                            A dedicated, intensive session to collaborate on advanced journaling, psychological barriers, and strategy refinement.
-                        </p>
-                    </div>
-                    <div class="mt-4 md:mt-0 md:text-right">
-                        <p class="text-xl font-extrabold text-event-monthly">Beginning November 8th</p>
-                        <p class="text-base font-semibold text-gray-700">Dates and Location TBD</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Event 4: Community Mixer (Save the Date) -->
-            <div class="event-card p-6 bg-white rounded-xl border-l-8 border-event-mixer shadow-lg">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div>
-                        <span class="text-sm font-semibold uppercase text-event-mixer">Save the Date!</span>
-                        <h2 class="text-3xl font-bold text-trade-secondary mt-1">
-                            Community Holiday Mixer
-                        </h2>
-                        <p class="text-lg text-gray-600 mt-2">
-                            A final celebration! Join us to relax, enjoy the holiday season, and reflect on **all the goals and consistency milestones** the community has accomplished since its inception.
-                        </p>
-                    </div>
-                    <div class="mt-4 md:mt-0 md:text-right">
-                        <p class="text-xl font-extrabold text-event-mixer">Saturday, December 13th</p>
-                        <p class="text-base font-semibold text-gray-700">More Info Coming Soon!</p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-
-        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-500">
-            All event links and updates will be shared in the main community chat channel.
-        </footer>
-
-    </div>
-</body>
-</html>
+    <hr>
+    
+    <h2>Special Event: Meet & Greet</h2>
+    <p><strong>Saturday, February 28th | 11:00am - 1:00pm</strong></p>
+    <p>Location: Jonesboro, GA</p>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdBNzLKFA8nbT1jQ5I6PpXYs_UcMWYhES5IHdKsNH4soNzPYw/viewform?usp=sharing&ouid=106151532685743508352" target="_blank" style="color: #007bff; text-decoration: underline;">Click here to register for the event</a></p>
+    
+    <hr>
+    
+    <p>Join our <a href="https://discord.gg/tnkY89M8Eq" target="_blank" style="color: #5865F2; text-decoration: underline;">Discord</a> for more details!</p>
+</section>
