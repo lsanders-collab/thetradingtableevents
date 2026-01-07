@@ -7,11 +7,13 @@
     <style>
         :root {
             --bg-color: #040d1a;
-            --card-bg: #0a192f;
+            --card-bg: rgba(10, 25, 47, 0.95); /* Made slightly transparent to show background */
             --text-main: #e6f1ff;
             --accent-teal: #64ffda;
             --accent-blue: #1a2a6c;
             --glow: 0 0 10px rgba(100, 255, 218, 0.3);
+            --candle-green: rgba(100, 255, 218, 0.07);
+            --candle-red: rgba(255, 88, 88, 0.05);
         }
 
         body { 
@@ -21,15 +23,52 @@
             background-color: var(--bg-color);
             margin: 0;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Candlestick Background Pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                /* Bullish Candle */
+                linear-gradient(var(--candle-green) 40px, transparent 40px),
+                linear-gradient(90deg, transparent 10px, var(--candle-green) 10px, var(--candle-green) 12px, transparent 12px),
+                /* Bearish Candle */
+                linear-gradient(var(--candle-red) 30px, transparent 30px),
+                linear-gradient(90deg, transparent 10px, var(--candle-red) 10px, var(--candle-red) 12px, transparent 12px);
+            background-size: 60px 100px, 60px 100px, 80px 120px, 80px 120px;
+            background-position: 10% 10%, 10% 10%, 40% 50%, 40% 50%;
+            opacity: 0.6;
+        }
+
+        /* Floating Graphic Elements */
+        .chart-line {
+            position: fixed;
+            top: 20%;
+            left: -10%;
+            width: 120%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
+            transform: rotate(-5deg);
+            opacity: 0.1;
+            z-index: -1;
         }
 
         header { 
             text-align: center; 
             padding: 50px 20px; 
-            background: linear-gradient(135deg, #040d1a 0%, #1a2a6c 100%);
+            background: linear-gradient(135deg, rgba(4, 13, 26, 0.9) 0%, rgba(26, 42, 108, 0.9) 100%);
             border-bottom: 2px solid var(--accent-teal);
             border-radius: 12px;
             margin-bottom: 30px;
+            backdrop-filter: blur(5px);
         }
 
         .logo { 
@@ -39,9 +78,9 @@
             filter: drop-shadow(0 0 8px var(--accent-teal));
         }
 
-        h1 { font-size: 2.5rem; letter-spacing: 2px; margin: 10px 0; color: #fff; }
+        h1 { font-size: 2.5rem; letter-spacing: 2px; margin: 10px 0; color: #fff; text-shadow: 0 0 10px rgba(100,255,218,0.2); }
 
-        .container { max-width: 900px; margin: 0 auto; }
+        .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
 
         .card { 
             background: var(--card-bg); 
@@ -50,16 +89,21 @@
             border: 1px solid rgba(100, 255, 218, 0.1);
             box-shadow: var(--glow);
             margin-bottom: 25px; 
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .card:hover { transform: translateY(-5px); border-color: var(--accent-teal); }
+        .card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--accent-teal);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.15);
+        }
 
         h2 { color: var(--accent-teal); text-transform: uppercase; font-size: 1.2rem; letter-spacing: 1px; margin-top: 0; }
 
         .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-        .time-slot { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; }
+        .time-slot { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; border-left: 3px solid var(--accent-teal); }
 
         .link-button { 
             display: inline-block;
@@ -68,19 +112,25 @@
             text-decoration: none; 
             font-weight: bold; 
             border: 1px solid var(--accent-teal);
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 5px;
             margin-top: 15px;
             transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .link-button:hover { background: var(--accent-teal); color: var(--bg-color); }
+        .link-button:hover { background: var(--accent-teal); color: var(--bg-color); box-shadow: 0 0 15px var(--accent-teal); }
 
         .discord-btn { 
             color: #5865F2; 
-            text-decoration: underline; 
+            text-decoration: none; 
             font-weight: bold;
+            border-bottom: 1px dashed #5865F2;
+            transition: opacity 0.3s;
         }
+
+        .discord-btn:hover { opacity: 0.8; }
 
         .footer { text-align: center; font-size: 0.8rem; color: #8892b0; margin-top: 50px; padding-bottom: 30px; }
 
@@ -89,10 +139,12 @@
 </head>
 <body>
 
+    <div class="chart-line"></div>
+
     <header>
         <img src="Screenshot 2025-10-04 230134.png" alt="The Trading Table" class="logo">
         <h1>THE TRADING TABLE</h1>
-        <p style="color: var(--accent-teal); opacity: 0.8;">Collaborative Markets & Real-Time Strategy</p>
+        <p style="color: var(--accent-teal); opacity: 0.8; font-weight: 600; letter-spacing: 1px;">Collaborative Markets & Real-Time Strategy</p>
     </header>
 
     <div class="container">
@@ -101,12 +153,12 @@
             <h2>Weekly Online Syncs (Zoom)</h2>
             <div class="schedule-grid">
                 <div class="time-slot">
-                    <strong>Monday & Wednesday Mornings</strong><br>
-                    8:30 AM – 10:00 AM
+                    <strong>Monday & Wednesday</strong><br>
+                    <span style="color: var(--accent-teal)">8:30 AM – 10:00 AM</span>
                 </div>
                 <div class="time-slot">
                     <strong>Thursday Nights</strong><br>
-                    8:30 PM – 10:00 PM
+                    <span style="color: var(--accent-teal)">8:30 PM – 10:00 PM</span>
                 </div>
             </div>
             <p style="font-size: 0.9rem; margin-top: 15px; color: #8892b0;">Join the live war room to discuss bias, liquidity, and setup execution.</p>
@@ -114,7 +166,7 @@
 
         <div class="card">
             <h2>Special In-Person Meet & Greet</h2>
-            <p><strong>Saturday, February 28, 2026</strong><br>11:00 AM – 1:00 PM</p>
+            <p style="font-size: 1.1rem;"><strong>Saturday, February 28, 2026</strong><br>11:00 AM – 1:00 PM</p>
             <p><strong>Jonesboro, GA</strong></p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBNzLKFA8nbT1jQ5I6PpXYs_UcMWYhES5IHdKsNH4soNzPYw/viewform?usp=sharing&ouid=106151532685743508352" class="link-button" target="_blank">Register for Event</a>
         </div>
@@ -122,13 +174,13 @@
         <div class="card">
             <h2>Community Hub</h2>
             <p>Access Zoom links, chart markups, and daily trade logs in our Discord.</p>
-            <a href="https://discord.gg/tnkY89M8Eq" class="discord-btn" target="_blank">Join The Trading Table Discord</a>
+            <a href="https://discord.gg/tnkY89M8Eq" class="discord-btn" target="_blank">Join The Trading Table Discord →</a>
         </div>
 
     </div>
 
     <div class="footer">
-        <p>&copy; 2026 THE TRADING TABLE | Designed for Traders</p>
+        <p>&copy; 2026 THE TRADING TABLE | Consistency is the Edge</p>
     </div>
 
 </body>
