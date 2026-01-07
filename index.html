@@ -9,34 +9,33 @@
         :root {
             --navy: #0e1b2e;
             --teal: #64ffda;
-            --gold: #c5a059;
-            --bg-slate: #f0f4f8; /* Toned down white to a soft grey-blue */
-            --card-blue: #1a2a6c;
-            --text-main: #2d3748;
+            --bg-slate: #e2e8f0; /* Toned down grey-blue background */
+            --border-grey: #cbd5e0;
+            --text-dark: #1a202c;
         }
 
         body { 
             font-family: 'Montserrat', sans-serif; 
             margin: 0; 
             padding: 0; 
-            color: var(--text-main);
+            color: var(--text-dark);
             background-color: var(--bg-slate);
             line-height: 1.6;
         }
 
-        /* Header with Navy/Teal Gradient */
         header { 
             background: linear-gradient(135deg, var(--navy) 0%, #162a45 100%);
             color: white;
             text-align: center; 
             padding: 80px 20px;
-            border-bottom: 4px solid var(--teal);
+            border-bottom: 5px solid var(--teal);
         }
 
+        /* IMPORTANT: Make sure this filename matches exactly what you uploaded to GitHub */
         .logo { 
-            max-width: 130px; 
+            max-width: 140px; 
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.3));
+            filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.4));
         }
 
         h1 { 
@@ -61,77 +60,57 @@
             padding: 60px 20px;
         }
 
-        .section-label {
-            display: block;
-            text-align: center;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #718096;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        /* Frame Type Boxes */
+        /* Frame Style Boxes */
         .schedule-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .frame-box {
-            background: white;
-            border: 2px solid #cbd5e0; /* Grey Frame */
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid var(--border-grey);
             padding: 30px;
             text-align: center;
-            border-radius: 4px; /* Slight rounding for a "frame" look */
-            transition: all 0.3s ease;
             position: relative;
+            transition: 0.3s;
         }
 
-        /* Teal accent corner for the frames */
-        .frame-box::after {
+        /* Teal accent for the Frame corners */
+        .frame-box::before {
             content: '';
             position: absolute;
             top: -2px;
-            right: -2px;
-            width: 20px;
-            height: 20px;
+            left: -2px;
+            width: 15px;
+            height: 15px;
             border-top: 4px solid var(--teal);
-            border-right: 4px solid var(--teal);
+            border-left: 4px solid var(--teal);
         }
 
         .frame-box h3 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--navy);
             margin: 0 0 10px 0;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .time-text {
             font-size: 1.1rem;
-            color: var(--card-blue);
             font-weight: 700;
+            color: #2c5282;
         }
 
-        /* Event Layout */
         .event-section {
             text-align: center;
-            background: rgba(14, 27, 46, 0.03);
-            padding: 50px 20px;
-            border-top: 1px solid #d1d9e6;
-            border-bottom: 1px solid #d1d9e6;
+            padding: 40px;
+            border: 1px solid var(--border-grey);
+            background: rgba(255,255,255,0.4);
+            margin-bottom: 40px;
         }
 
-        .event-main {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-
-        /* Action Button */
         .btn { 
             display: inline-block;
             background-color: var(--navy);
@@ -139,10 +118,9 @@
             text-decoration: none; 
             font-weight: 700; 
             padding: 18px 40px;
-            border-radius: 2px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 30px;
+            margin-top: 20px;
             border: 1px solid var(--teal);
             transition: 0.3s;
         }
@@ -150,16 +128,14 @@
         .btn:hover { 
             background-color: var(--teal);
             color: var(--navy);
-            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
         }
 
-        .discord-btn {
+        .discord-link {
             display: inline-block;
-            margin-top: 40px;
+            margin-top: 20px;
             color: var(--navy);
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.1rem;
             border-bottom: 3px solid var(--teal);
             padding-bottom: 5px;
         }
@@ -190,7 +166,6 @@
 
     <div class="container">
         
-        <span class="section-label">Weekly Sessions</span>
         <div class="schedule-grid">
             <div class="frame-box">
                 <h3>Monday & Wednesday</h3>
@@ -203,20 +178,20 @@
         </div>
 
         <div class="event-section">
-            <span class="section-label">In-Person Special Event</span>
-            <div class="event-main">Saturday, February 28, 2026</div>
-            <div style="font-size: 1.2rem; color: #4a5568; margin-bottom: 20px;">Jonesboro, GA | 11:00 AM — 01:00 PM</div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBNzLKFA8nbT1jQ5I6PpXYs_UcMWYhES5IHdKsNH4soNzPYw/viewform?usp=sharing&ouid=106151532685743508352" class="btn" target="_blank">Register Here</a>
+            <h2 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; color: #718096;">Special Event</h2>
+            <div style="font-size: 2rem; font-weight: 800; margin: 10px 0;">Saturday, February 28, 2026</div>
+            <p>Jonesboro, GA | 11:00 AM — 01:00 PM</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBNzLKFA8nbT1jQ5I6PpXYs_UcMWYhES5IHdKsNH4soNzPYw/viewform?usp=sharing&ouid=106151532685743508352" class="btn" target="_blank">Register Now</a>
         </div>
 
-        <div style="text-align: center; padding: 60px 0;">
-            <a href="https://discord.gg/tnkY89M8Eq" class="discord-btn" target="_blank">Join The Trading Table Discord →</a>
+        <div style="text-align: center;">
+            <a href="https://discord.gg/tnkY89M8Eq" class="discord-link" target="_blank">Join The Trading Table Discord →</a>
         </div>
 
     </div>
 
     <footer>
-        &copy; 2026 THE TRADING TABLE | Built for Consistency
+        &copy; 2026 THE TRADING TABLE
     </footer>
 
 </body>
