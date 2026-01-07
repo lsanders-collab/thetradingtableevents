@@ -4,188 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Trading Table | Sync & Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #02060f;
-            --text-main: #e6f1ff;
-            --accent-teal: #64ffda;
-            --candle-green: rgba(0, 255, 157, 0.15);
-            --candle-red: rgba(255, 62, 62, 0.12);
+            --navy: #0e1b2e;
+            --gold: #c5a059; /* Matching the gold accents on your Canva site */
+            --white: #ffffff;
+            --light-gray: #f9f9f9;
+            --text-gray: #4a4a4a;
         }
 
         body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            color: var(--text-main); 
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 40px 20px;
-            /* High-Impact Candlestick Background */
-            background-image: 
-                /* Hammer Pattern */
-                linear-gradient(90deg, transparent 49%, var(--candle-green) 50%, transparent 51%),
-                linear-gradient(0deg, transparent 60%, var(--candle-green) 60%, var(--candle-green) 68%, transparent 68%),
-                /* Bearish Pattern */
-                linear-gradient(90deg, transparent 19%, var(--candle-red) 20%, transparent 21%),
-                linear-gradient(0deg, transparent 10%, var(--candle-red) 10%, var(--candle-red) 35%, transparent 35%);
-            background-size: 100px 200px, 100px 200px, 140px 280px, 140px 280px;
-            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--navy);
+            background-color: var(--white);
+            line-height: 1.6;
         }
 
-        .container { max-width: 800px; margin: 0 auto; }
-
+        /* Hero Section */
         header { 
+            background-color: var(--navy);
+            color: var(--white);
             text-align: center; 
-            margin-bottom: 80px; 
+            padding: 100px 20px;
+            position: relative;
         }
 
         .logo { 
-            max-width: 150px; 
-            filter: drop-shadow(0 0 15px rgba(100, 255, 218, 0.4));
-            margin-bottom: 20px;
-        }
-
-        h1 { 
-            font-size: 3rem; 
-            letter-spacing: 5px; 
-            margin: 0; 
-            color: #fff; 
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-
-        .tagline {
-            color: var(--accent-teal);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-
-        /* SECTION STYLING - No Rectangles */
-        section {
-            margin-bottom: 60px;
-            padding-left: 20px;
-            border-left: 1px solid rgba(100, 255, 218, 0.2); /* Single subtle line for structure */
-        }
-
-        h2 { 
-            color: var(--accent-teal); 
-            text-transform: uppercase; 
-            font-size: 1rem; 
-            letter-spacing: 4px; 
+            max-width: 140px; 
             margin-bottom: 25px;
         }
 
-        .schedule-row {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .time-block strong {
-            display: block;
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-
-        .time-block span {
-            color: #8892b0;
+        h1 { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem; 
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin: 0;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
         }
 
-        .event-info {
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-size: 1.5rem;
-            font-weight: 600;
-            margin: 10px 0;
+            color: var(--gold);
+            margin-top: 10px;
         }
 
-        .btn-link { 
+        /* Open Sections (No Rectangles) */
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 80px 20px;
+        }
+
+        section {
+            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--gold);
+            margin-bottom: 40px;
+            display: block;
+            font-weight: 700;
+        }
+
+        /* Schedule Styling */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        .day-block h3 {
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .time {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        /* Event Highlight */
+        .event-main {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .location {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        /* Buttons */
+        .btn { 
             display: inline-block;
-            color: var(--bg-color);
-            background-color: var(--accent-teal);
+            background-color: var(--gold);
+            color: var(--white);
             text-decoration: none; 
             font-weight: 700; 
-            padding: 15px 35px;
-            border-radius: 2px;
-            margin-top: 20px;
+            padding: 18px 45px;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .btn-link:hover { 
-            box-shadow: 0 0 25px rgba(100, 255, 218, 0.6);
-            transform: translateY(-2px);
+        .btn:hover { 
+            background-color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .discord-link {
-            color: #5865F2;
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--navy);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: 0.3s;
+            font-weight: 700;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 5px;
         }
 
-        .discord-link:hover { color: var(--accent-teal); }
+        /* Background Pattern - Subtle Canva Style */
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(var(--light-gray) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.5;
+        }
 
-        .footer { 
+        footer { 
+            background-color: var(--navy);
+            color: rgba(255,255,255,0.5);
             text-align: center; 
-            margin-top: 100px; 
-            font-size: 0.7rem; 
-            color: #4e5d78; 
-            letter-spacing: 4px;
+            padding: 60px 20px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .schedule-row { flex-direction: column; }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .schedule-grid { grid-template-columns: 1fr; }
+            .event-main { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <img src="Screenshot 2025-10-04 230134.png" alt="The Trading Table" class="logo">
-            <h1>The Trading Table</h1>
-            <div class="tagline">Sync • Strategy • Success</div>
-        </header>
+    <div class="bg-pattern"></div>
 
+    <header>
+        <img src="Screenshot 2025-10-04 230134.png" alt="The Trading Table" class="logo">
+        <h1>The Trading Table</h1>
+        <div class="tagline">Collaborative Markets & Strategy</div>
+    </header>
+
+    <div class="container">
+        
         <section>
-            <h2>Weekly Trading Syncs (Zoom)</h2>
-            <div class="schedule-row">
-                <div class="time-block">
-                    <strong>Monday & Wednesday</strong>
-                    <span>8:30 AM — 10:00 AM EST</span>
+            <span class="section-title">Weekly Online Syncs</span>
+            <div class="schedule-grid">
+                <div class="day-block">
+                    <h3>Mon & Wed</h3>
+                    <div class="time">08:30 AM — 10:00 AM EST</div>
                 </div>
-                <div class="time-block">
-                    <strong>Thursday Evenings</strong>
-                    <span>8:30 PM — 10:00 PM EST</span>
+                <div class="day-block">
+                    <h3>Thursday</h3>
+                    <div class="time">08:30 PM — 10:00 PM EST</div>
                 </div>
             </div>
+            <p style="margin-top: 40px; font-style: italic; color: var(--text-gray);">Live War Room Sessions on Zoom</p>
         </section>
 
         <section>
-            <h2>In-Person Meet & Greet</h2>
-            <div class="event-info">Saturday, February 28, 2026</div>
-            <p style="margin: 0; color: #8892b0; text-transform: uppercase; letter-spacing: 1px;">Jonesboro, GA | 11:00 AM — 1:00 PM</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBNzLKFA8nbT1jQ5I6PpXYs_UcMWYhES5IHdKsNH4soNzPYw/viewform?usp=sharing&ouid=106151532685743508352" class="btn-link" target="_blank">Register Now</a>
+            <span class="section-title">In-Person Meet & Greet</span>
+            <div class="event-main">Saturday, February 28, 2026</div>
+            <div class="location">Jonesboro, GA | 11:00 AM — 01:00 PM</div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBNzLKFA8nbT1jQ5I6PpXYs_UcMWYhES5IHdKsNH4soNzPYw/viewform?usp=sharing&ouid=106151532685743508352" class="btn" target="_blank">Register Now</a>
         </section>
 
-        <section style="border-left: none; text-align: center; padding-left: 0;">
-            <p style="color: #8892b0; margin-bottom: 10px;">Looking for Zoom links and markups?</p>
-            <a href="https://discord.gg/tnkY89M8Eq" class="discord-link" target="_blank">Join the Community Discord →</a>
+        <section style="margin-bottom: 0;">
+            <span class="section-title">The Community</span>
+            <p>Ready to level up with the team? Join our ecosystem for daily markups and trade recaps.</p>
+            <a href="https://discord.gg/tnkY89M8Eq" class="discord-link" target="_blank">Join The Trading Table Discord →</a>
         </section>
 
-        <div class="footer">
-            &copy; 2026 THE TRADING TABLE | Discipline is the Edge
-        </div>
     </div>
+
+    <footer>
+        &copy; 2026 THE TRADING TABLE | Sync. Strategy. Success.
+    </footer>
 
 </body>
 </html>
