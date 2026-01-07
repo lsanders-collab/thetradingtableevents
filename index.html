@@ -9,7 +9,7 @@
         :root {
             --navy: #0e1b2e;
             --teal: #64ffda;
-            --bg-slate: #e2e8f0; /* Toned down grey-blue background */
+            --bg-slate: #e2e8f0; 
             --border-grey: #cbd5e0;
             --text-dark: #1a202c;
         }
@@ -31,7 +31,6 @@
             border-bottom: 5px solid var(--teal);
         }
 
-        /* IMPORTANT: Make sure this filename matches exactly what you uploaded to GitHub */
         .logo { 
             max-width: 140px; 
             margin-bottom: 20px;
@@ -60,12 +59,22 @@
             padding: 60px 20px;
         }
 
+        .section-header {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+
         /* Frame Style Boxes */
         .schedule-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
 
         .frame-box {
@@ -74,7 +83,6 @@
             padding: 30px;
             text-align: center;
             position: relative;
-            transition: 0.3s;
         }
 
         /* Teal accent for the Frame corners */
@@ -90,7 +98,7 @@
         }
 
         .frame-box h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--navy);
             margin: 0 0 10px 0;
             text-transform: uppercase;
@@ -166,9 +174,11 @@
 
     <div class="container">
         
+        <div class="section-header">Weekly Online Sessions</div>
+        
         <div class="schedule-grid">
             <div class="frame-box">
-                <h3>Monday & Wednesday</h3>
+                <h3>Monday & Wednesday Mornings</h3>
                 <div class="time-text">08:30 AM — 10:00 AM EST</div>
             </div>
             <div class="frame-box">
@@ -178,7 +188,7 @@
         </div>
 
         <div class="event-section">
-            <h2 style="text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; color: #718096;">Special Event</h2>
+            <div class="section-header" style="margin-bottom: 10px;">In-Person Meet & Greet</div>
             <div style="font-size: 2rem; font-weight: 800; margin: 10px 0;">Saturday, February 28, 2026</div>
             <p>Jonesboro, GA | 11:00 AM — 01:00 PM</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBNzLKFA8nbT1jQ5I6PpXYs_UcMWYhES5IHdKsNH4soNzPYw/viewform?usp=sharing&ouid=106151532685743508352" class="btn" target="_blank">Register Now</a>
